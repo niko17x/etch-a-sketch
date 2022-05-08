@@ -1,0 +1,19 @@
+* {
+    margin: none;
+    padding: none;
+}
+
+.container {
+    display: flex;
+}
+
+.div-grid {
+    border: 1px solid black;
+    width: 16px;
+    height: 16px;
+    transition: 400ms;
+}
+
+.div-grid:hover {
+    background-color: rgb(86, 255, 233);
+}
