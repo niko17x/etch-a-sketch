@@ -11,9 +11,8 @@
     border: 1px solid black;
     width: 16px;
     height: 16px;
-    transition: 400ms;
 }
 
-.div-grid:hover {
+.hover-effect {
     background-color: rgb(86, 255, 233);
 }
