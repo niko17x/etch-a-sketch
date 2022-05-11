@@ -5,21 +5,38 @@ const divContainer = document.querySelector('.container'); // selecting main div
 const divGrid = document.createElement('div'); // create div element.
 const classDivGrid = document.querySelectorAll('.div-grid'); // selecting ALL elements with the class name '.div-grid'.
 const selectClassCell = document.querySelector('.cell'); // select all div with class '.cell'.
+let userInput; // variable to store user input for dynamic grid.
+
+
+function main() {
+    const getUserInput = userInputGrid();
+    createButton();
+    createDivColumns(getUserInput); //get input from user for grid size.
+    createDivRows(getUserInput);
+}
+main();
+
+
+
+
+// Get user input for number of grids:
+function userInputGrid() {
+    do {
+        userInput = Number(prompt("Choose a number 100 or less to create the grid: "))
+    } while (Number.isInteger(userInput) === false || userInput > 100);
+    return (userInput);
+}
+
 
 // Button for user input for size of grid:
 function createButton() {
     const button = document.createElement('button'); // create button.
     button.classList.add('grid-size');
+    button.textContent = "Change Grid Size"
 
     // adding button element as the first child in body element:
     body.prepend(button);
 }
-
-
-
-
-
-
 
 // Create entire grid with input from user:
 function createGrid(num) {
@@ -27,11 +44,7 @@ function createGrid(num) {
     const columns = createDivColumns(num);
     const rows = createDivRows(num);
 }
-createGrid(16);
-
-
-
-
+// createGrid(16);
 
 // Create Columns:
 function createDivColumns(num) {
