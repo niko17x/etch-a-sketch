@@ -1,9 +1,21 @@
 
 // SELECTORS:
+const body = document.querySelector('body');
 const divContainer = document.querySelector('.container'); // selecting main div container in body:
 const divGrid = document.createElement('div'); // create div element.
 const classDivGrid = document.querySelectorAll('.div-grid'); // selecting ALL elements with the class name '.div-grid'.
 const selectClassCell = document.querySelector('.cell'); // select all div with class '.cell'.
+
+// Button for user input for size of grid:
+function createButton() {
+    const button = document.createElement('button'); // create button.
+    button.classList.add('grid-size');
+
+    // adding button element as the first child in body element:
+    body.prepend(button);
+}
+
+
 
 
 
@@ -11,6 +23,7 @@ const selectClassCell = document.querySelector('.cell'); // select all div with 
 
 // Create entire grid with input from user:
 function createGrid(num) {
+    const button = createButton();
     const columns = createDivColumns(num);
     const rows = createDivRows(num);
 }

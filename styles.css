@@ -3,6 +3,13 @@
     padding: none;
 }
 
+.grid-size {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
 .container {
     display: flex;
 }
