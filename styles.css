@@ -7,12 +7,9 @@
     display: flex;
 }
 
-.div-grid {
+.cell {
     border: 1px solid black;
     width: 16px;
     height: 16px;
 }
 
-.hover-effect {
-    background-color: rgb(86, 255, 233);
-}
