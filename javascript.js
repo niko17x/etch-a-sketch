@@ -2,9 +2,7 @@
 // SELECTORS:
 const body = document.querySelector('body');
 const divContainer = document.querySelector('.container'); // selecting main div container in body:
-const divGrid = document.createElement('div'); // create div element.
-const classDivGrid = document.querySelectorAll('.div-grid'); // selecting ALL elements with the class name '.div-grid'.
-const selectClassCell = document.querySelector('.cell'); // select all div with class '.cell'.
+
 let userInput; // variable to store user input for dynamic grid sizing.
 
 
