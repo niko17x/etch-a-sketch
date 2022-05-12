@@ -1,13 +1,7 @@
 * {
     margin: none;
     padding: none;
-}
 
-.grid-size {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
 }
 
 .container {
@@ -20,3 +14,10 @@
     height: 16px;
 }
 
+
+/*Why doesn't the button become centered?*/
+button > .grid-size {
+    display:flex;
+    align-content: center;
+    justify-content: center;
+}

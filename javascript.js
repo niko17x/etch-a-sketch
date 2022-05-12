@@ -5,12 +5,10 @@ const divContainer = document.querySelector('.container'); // selecting main div
 const divGrid = document.createElement('div'); // create div element.
 const classDivGrid = document.querySelectorAll('.div-grid'); // selecting ALL elements with the class name '.div-grid'.
 const selectClassCell = document.querySelector('.cell'); // select all div with class '.cell'.
-let userInput; // variable to store user input for dynamic grid.
+let userInput; // variable to store user input for dynamic grid sizing.
 
 
-function main() {
-    const getUserInput = userInputGrid();
-    createButton();
+function main(getUserInput=16) { // default 16x16 grid size.
     createDivColumns(getUserInput); //get input from user for grid size.
     createDivRows(getUserInput);
 }
@@ -28,23 +26,7 @@ function userInputGrid() {
 }
 
 
-// Button for user input for size of grid:
-function createButton() {
-    const button = document.createElement('button'); // create button.
-    button.classList.add('grid-size');
-    button.textContent = "Change Grid Size"
 
-    // adding button element as the first child in body element:
-    body.prepend(button);
-}
-
-// Create entire grid with input from user:
-function createGrid(num) {
-    const button = createButton();
-    const columns = createDivColumns(num);
-    const rows = createDivRows(num);
-}
-// createGrid(16);
 
 // Create Columns:
 function createDivColumns(num) {
@@ -57,7 +39,7 @@ function createDivColumns(num) {
 
 // Create rows:
 function createDivRows(num) {
-    const selectAllDivs = document.querySelectorAll('.grid'); // select all divs with the class '.grid'.
+    const selectAllDivs = document.querySelectorAll('.grid');
     for (let i=0; i<num; i++) {
         for (div of selectAllDivs) {
             const newDiv = document.createElement('div'); // create div element.
