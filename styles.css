@@ -9,6 +9,9 @@
 }
 
 .cell {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     border: 1px solid black;
     width: 16px;
     height: 16px;
