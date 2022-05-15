@@ -1,9 +1,9 @@
 
 // SELECTORS:
 const body = document.querySelector('body');
-const button = document.querySelector('button');
+const newGrid = document.querySelector('.new-grid');
 const divContainer = document.querySelector('.container');
-const resetGrid = document.querySelector('.reset-grid');
+const removeGrid = document.querySelector('.remove-grid');
 
 
 // default grid (16x16):
@@ -12,11 +12,12 @@ function defaultGrid() {
     createDivRows(16);
 }
 
-// create grid:
+// !create grid:
 function createGrid() {
-    let inputGrid = prompt("Choose a grid size: ");
-    createDivColumns(inputGrid);
-    createDivRows(inputGrid);
+    clearGrid();
+    let getGridSize = gridSize();
+    createDivColumns(getGridSize);
+    createDivRows(getGridSize);
 }
 
 // Create Columns:
@@ -28,6 +29,18 @@ function createDivColumns(num) {
     }
 }
 
+
+// ask player for grid size:
+function gridSize() {
+    let getGridSize = Number(prompt("Choose a grid size between 2 and 100: "));
+    while (getGridSize<2 || getGridSize>100) {
+        getGridSize = prompt("Invalid choice. Only from 2 to 100.");
+    }
+    console.log(getGridSize);
+    return getGridSize;
+}
+
+
 // Create rows:
 function createDivRows(num) {
     const selectAllDiv = document.querySelectorAll('.grid');
@@ -38,12 +51,6 @@ function createDivRows(num) {
             div.appendChild(newDiv);
         }
     }
-}
-
-// grid is reset to default grid (16x16) when user clicks on 'Reset Grid' button:
-function reloadGrid() {
-    clearGrid();
-    defaultGrid();
 }
 
 
@@ -62,12 +69,13 @@ divContainer.addEventListener('mouseover', (event) => {
 })
 
 
-
 // main function:
 function main() {
-    button.addEventListener('click', createGrid);
+    defaultGrid();
+    newGrid.addEventListener('click', createGrid);
     // event listener when user clicks, reset the grid:
-    resetGrid.addEventListener('click', reloadGrid);
+    removeGrid.addEventListener('click', clearGrid);
     // reloadGrid();
 }
 main();
+
