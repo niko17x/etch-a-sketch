@@ -6,11 +6,10 @@ const divContainer = document.querySelector('.container');
 const resetGrid = document.querySelector('.reset-grid');
 
 
-
 // default grid (16x16):
-function defaultGrid() {
-    createDivColumns(16);
-    createDivRows(16);
+function defaultGrid(grid=16) {
+    createDivColumns(grid);
+    createDivRows(grid);
 }
 
 // clear grid then create a new grid:
@@ -30,7 +29,6 @@ function createDivColumns(num) {
     }
 }
 
-
 // ask player for grid size:
 function gridSize() {
     let getGridSize = Number(prompt("Choose a grid size between 2 and 100: "));
@@ -40,7 +38,6 @@ function gridSize() {
     console.log(getGridSize);
     return getGridSize;
 }
-
 
 // Create rows:
 function createDivRows(num) {
@@ -54,7 +51,6 @@ function createDivRows(num) {
     }
 }
 
-
 // reset the grid by removing the 'style' attribute:
 function clearGrid() {
     const cell = document.querySelectorAll('.cell');
@@ -63,15 +59,24 @@ function clearGrid() {
     }
 }
 
-
 // Changes background color if mouse hovers over element:
 divContainer.addEventListener('mouseover', (event) => {
     // window.location.reload();
+    const getRandColor = genRandomColor();
     if (event.target.matches('.cell')) {
-        event.target.style.backgroundColor = 'aquamarine';
+        event.target.style.backgroundColor = getRandColor;
     }
 })
 
+// generate a random color:
+function genRandomColor() {
+    let maxVal = 0xFFFFFF; // '0x' required in JS for HEX value.
+    let randomNumber = Math.random() * maxVal; // get random number.
+    randomNumber = Math.floor(randomNumber); // convert to whole numbers only.
+    randomNumber = randomNumber.toString(16); // convert integer to string.
+    let randColor = randomNumber.padStart(6, 0); // fills in potential 'empty spots' with 0's since 6 digit number is required.
+    return `#${randColor.toUpperCase()}` // '#' indicates HEX value.
+}    
 
 // main function:
 function main() {
@@ -82,4 +87,9 @@ function main() {
     // reloadGrid();
 }
 main();
+
+
+
+
+
 
