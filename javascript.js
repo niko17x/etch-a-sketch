@@ -3,7 +3,8 @@
 const body = document.querySelector('body');
 const newGrid = document.querySelector('.new-grid');
 const divContainer = document.querySelector('.container');
-const removeGrid = document.querySelector('.remove-grid');
+const resetGrid = document.querySelector('.reset-grid');
+
 
 
 // default grid (16x16):
@@ -12,7 +13,7 @@ function defaultGrid() {
     createDivRows(16);
 }
 
-// !create grid:
+// clear grid then create a new grid:
 function createGrid() {
     clearGrid();
     let getGridSize = gridSize();
@@ -54,9 +55,12 @@ function createDivRows(num) {
 }
 
 
-// function that resets the grid:
+// reset the grid by removing the 'style' attribute:
 function clearGrid() {
-    divContainer.innerHTML = '';
+    const cell = document.querySelectorAll('.cell');
+    for (c of cell) {
+        c.removeAttribute('style');
+    }
 }
 
 
@@ -74,7 +78,7 @@ function main() {
     defaultGrid();
     newGrid.addEventListener('click', createGrid);
     // event listener when user clicks, reset the grid:
-    removeGrid.addEventListener('click', clearGrid);
+    resetGrid.addEventListener('click', clearGrid);
     // reloadGrid();
 }
 main();
