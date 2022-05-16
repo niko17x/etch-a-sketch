@@ -14,7 +14,7 @@ function defaultGrid(grid=16) {
 
 // clear grid then create a new grid:
 function createGrid() {
-    clearGrid();
+    divContainer.innerHTML = '';
     let getGridSize = gridSize();
     createDivColumns(getGridSize);
     createDivRows(getGridSize);
