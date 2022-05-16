@@ -1,26 +1,25 @@
 * {
     margin: none;
     padding: none;
-
 }
+
 
 .container {
     display: flex;
+    justify-content: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
 .cell {
     display: flex;
-    justify-content: center;
-    align-content: center;
     border: 1px solid black;
     width: 16px;
     height: 16px;
+    margin: 1px;
 }
 
-
-/*Why doesn't the button become centered?*/
-button > .grid-size {
-    display:flex;
-    align-content: center;
-    justify-content: center;
-}
